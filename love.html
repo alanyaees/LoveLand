@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Zhopki Diana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdf6f6;
+            --text-color: #4e4343;
+            --primary-color: #e48a9f;
+            --secondary-color: #f3d4d4;
+            --heading-font: 'Lora', serif;
+            --body-font: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        canvas#hearts-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1.2s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: var(--heading-font);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .arrow {
+            margin-top: 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .letter-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reasons-list li {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .reasons-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .reasons-list li::before {
+            content: '❤';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .final-message p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .signature {
+            font-family: var(--heading-font);
+            font-style: italic;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="hearts-canvas"></canvas>
+
+    <header>
+        <h1>For My Dearest Zhopki Diana</h1>
+        <p>Every second feels like a lifetime without you.</p>
+        <div class="arrow">↓</div>
+    </header>
+
+    <main class="container">
+        <section id="letter" class="scroll-reveal">
+            <h2 class="section-title">A Letter For You</h2>
+            <div class="letter-content">
+                My Love,<br><br>
+                I wanted to create something special for you, a small corner of the internet that belongs only to us. Words feel so small when I try to describe what you mean to me, but I have to try. Being away from you is the hardest thing I've ever had to do. There’s a quiet space next to me where you should be, a silence in the room that your laughter should fill. I miss everything – your smile that lights up my world, the warmth of your hand in mine, the way you look at me. You are my home, and I feel so far from it right now.
+            </div>
+        </section>
+
+        <section id="reasons" class="scroll-reveal">
+            <h2 class="section-title">A Few Reasons I Love You</h2>
+            <ul class="reasons-list">
+                <li>The way your eyes sparkle when you're excited about something.</li>
+                <li>Your incredible kindness to everyone you meet.</li>
+                <li>How you can make me laugh even on my worst days.</li>
+                <li>Your strength and how you never give up.</li>
+                <li>The simple fact that you are you. Perfectly, wonderfully you.</li>
+            </ul>
+        </section>
+
+        <section class="final-message scroll-reveal">
+            <p>
+                Every day I'm without you, I love you more. Every moment we're apart just makes me more certain that I want to spend all of my moments with you. I am counting down the seconds until I can see you again.
+            </p>
+            <p>Until then, know that I am always thinking of you.</p>
+            <p class="signature">Forever Yours, Alan🏎️</p>
+        </section>
+    </main>
+
+    <script>
+        // --- Gentle Floating Hearts Background ---
+        const canvas = document.getElementById('hearts-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let hearts = [];
+        const heartCount = 30;
+
+        function drawHeart(x, y, size, opacity) {
+            ctx.fillStyle = `rgba(228, 138, 159, ${opacity})`;
+            ctx.beginPath();
+            ctx.moveTo(x, y + size / 4);
+            ctx.quadraticCurveTo(x, y, x + size / 4, y);
+            ctx.quadraticCurveTo(x + size / 2, y, x + size / 2, y + size / 4);
+            ctx.quadraticCurveTo(x + size / 2, y, x + (size * 3) / 4, y);
+            ctx.quadraticCurveTo(x + size, y, x + size, y + size / 4);
+            ctx.quadraticCurveTo(x + size, y + size / 2, x + (size * 3) / 4, y + (size * 3) / 4);
+            ctx.lineTo(x + size / 2, y + size);
+            ctx.lineTo(x + size / 4, y + (size * 3) / 4);
+            ctx.quadraticCurveTo(x, y + size / 2, x, y + size / 4);
+            ctx.fill();
+        }
+
+        class Heart {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height + canvas.height;
+                this.size = Math.random() * 20 + 10;
+                this.speed = Math.random() * 2 + 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.y -= this.speed;
+                if (this.y < -this.size) {
+                    this.y = canvas.height + this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                drawHeart(this.x, this.y, this.size, this.opacity);
+            }
+        }
+
+        function initHearts() {
+            for (let i = 0; i < heartCount; i++) {
+                hearts.push(new Heart());
+            }
+        }
+
+        function animateHearts() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < hearts.length; i++) {
+                hearts[i].update();
+                hearts[i].draw();
+            }
+            requestAnimationFrame(animateHearts);
+        }
+
+        initHearts();
+        animateHearts();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            hearts = [];
+            initHearts();
+        });
+
+        // --- Scroll Reveal Animation ---
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+        
+        // Initial check
+        handleScrollAnimation();
+
+    </script>
+</body>
+</html>
